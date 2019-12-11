@@ -170,17 +170,13 @@ class FichaController extends Controller
         $path = $validatedData['kml']->path();
 
         $kml = simplexml_load_file($path);
-
-        // TODO definir la estructura final
-        $coordinates = $kml->Placemark->Polygon->outerBoundaryIs->LinearRing->coordinates;
-
+        $coordinates = $kml->Document->Placemark->Polygon->outerBoundaryIs->LinearRing->coordinates;
         $cordsData = trim(((string) $coordinates));
 
         // check if coordinate data is available
         if (isset($cordsData) && !empty($cordsData)) {
             $explodedData = explode("\n", $cordsData);
-            $explodedData = array_map('trim', $explodedData);
-            
+            $explodedData = preg_split("@[\s+　]@u", $explodedData[0]);
             // next for each of the points build the polygon data
             $points = array();
             // $polygon = "";
@@ -189,6 +185,7 @@ class FichaController extends Controller
 
             foreach ($explodedData as $index => $coordinateString) {
                 $coordinateSet = array_map('trim', explode(',', $coordinateString));
+                
                 if (count($coordinateSet) == 3) {
                     // lon,lat[,alt] | Index 0 = lon, index 1 = lat, index 2 = alt [optional]
                     // $points .= " Latitud: " . $coordinateSet[1] . " Longitud: " .$coordinateSet[0] . ",";
