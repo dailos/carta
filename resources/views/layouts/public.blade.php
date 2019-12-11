@@ -19,6 +19,8 @@
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/plugins.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+
+    @include('tracking.googleanalytics')
 </head>
 <body>
 	<div class="container py-5">
