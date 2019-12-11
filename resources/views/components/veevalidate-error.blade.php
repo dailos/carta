@@ -1,0 +1,1 @@
+<span v-show="errors.has('{{ $field }}')" class="veevalidate-error" role="alert"><strong>@{{ errors.first('{!! $field !!}') }}</strong></span>

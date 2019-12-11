@@ -1,0 +1,41 @@
+<?php
+
+return [
+	'create' => 'crear',
+	'update' => 'actualizar',
+	'collaborator' => 'colaborador',
+	'admin' => 'administrador',
+	'cod_ficha' => 'Cod ficha',
+	'foto_requerida' => 'Se requiere al menos una foto para la ficha',
+	'config' => [
+		'isla' => 'Islas',
+		'municipio' => 'Municipios',
+		'localidad' => 'Localidades',
+		'actividad' => 'Actividad',
+		'grupo' => 'Grupo',
+		'tipo' => 'Tipo',
+		'antiguedad' => 'Antigüedad',
+		'uso_actual' => 'Uso Actual',
+		'estado' => 'Estado',
+		'fragilidad' => 'Fragilidad',
+		'valor_cientifico' => 'Valor Científico',
+		'propiedad' => 'Propiedad',
+		'clasificacion_suelo' => 'Clasificación de Suelo',
+		'calificacion_suelo' => 'Calificación de Suelo',
+		'grado_proteccion' => 'Grado de protección',
+	],
+	'alert_title' => '¿Está seguro?',
+	'alert_text' => '¡Esta acción no se puede deshacer!',
+	'alert_confirm_button_text' => 'Si, ¡eliminar!',
+	'alert_cancel_button_text' => 'Cancelar',
+	'alert_download_text' => 'Va a descargar un listado de más de :attribute fichas. Puede tardar o exceder la memoria del sistema',
+	'alert_fichas_asociadas' => '(Esta ficha tiene peticiones pendientes de moderar que se eliminarán)',
+	'alert_fotos_text' => 'La imagen no se eliminará definitivamente hasta que se guarde la ficha.',
+	// Vista de resultados de búsqueda
+	'breadcrumb_home' => 'Carta etnográfica de Gran Canaria',
+	'breadcrumb_resultados' => 'Resultados de la búsqueda',
+	'resultados_busqueda' => '{0} No se han encontrado resultados para los criterios de búsqueda:|{1} Se ha encontrado 1 resultado para los criterios de búsqueda:|[2,*]Se han encontrado :total resultados para los criterios de búsqueda:',
+	'resultados_busqueda_info1' => "Se muestran los siguientes datos: número de ficha, imagen reducide del bien, nombre, toponimia localidad y municipio.",
+	'resultados_busqueda_info2' => "Haga click en el nombre o en la imagen del bien que desea consultar para obtener todos sus datos asociados y una imagen ampliada.",
+
+];
