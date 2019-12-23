@@ -8,6 +8,8 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+//Wrapper (old wp theme)
+@import 'wp_wrapper/app';
 
 .navbar-laravel {
   background-color: #fff;
