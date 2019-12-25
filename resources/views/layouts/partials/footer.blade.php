@@ -5,7 +5,7 @@
     <div class="fg-container container fg-container-large fg-container-lvl--1 ">
         <div class="fg-row row    ">
             <div class="ffb-id-30o2l080 fg-col col-xs-12 col-md-2 fg-text-dark">
-                <img class="ffb-id-21mi7ujp fg-image  img-responsive fg-text-dark" src="https://cartaetnograficagc.org/wp-content/uploads/sites/7/2018/03/logo_footer.png" alt="logo_footer" title="Fedac - Cabildo de Gran Canaria">
+                <img class="ffb-id-21mi7ujp fg-image  img-responsive fg-text-dark" src="{{asset('images/wp_wrapper/logo_footer.png')}}" alt="logo_footer" title="Fedac - Cabildo de Gran Canaria">
             </div>
             <div class="ffb-id-30o2l58n fg-col col-xs-12 col-md-6 fg-text-dark">
                 <div class="ffb-id-30o2m3jq fg-row row     fg-text-dark">
@@ -22,9 +22,9 @@
                 <div class="ffb-id-30o2qvaa ffg-empty-space fg-text-dark"></div>
                 <div class="ffb-id-317jket0 fg-row row     fg-text-dark">
                     <div class="ffb-id-317jteu3 fg-col col-xs-12 col-md-6 fg-text-dark"></div>
-                    <div class="ffb-id-317jkhp3 fg-col col-xs-12 col-md-3 fg-text-dark"><a class="ffb-id-317jkb0l responsive-image-wrapper fg-text-dark" href="https://www.facebook.com/fedac.org/" target="_blank" title="Facebook de la fedac"><img class="fg-image  img-responsive" src="https://cartaetnograficagc.org/wp-content/uploads/sites/7/2019/04/Facebook.png" alt="Facebook" title="" =""
+                    <div class="ffb-id-317jkhp3 fg-col col-xs-12 col-md-3 fg-text-dark"><a class="ffb-id-317jkb0l responsive-image-wrapper fg-text-dark" href="https://www.facebook.com/fedac.org/" target="_blank" title="Facebook de la fedac"><img class="fg-image  img-responsive" src="{{ asset('images/wp_wrapper/Facebook.png') }}" alt="Facebook" title="" =""
                             ></a></div>
-                    <div class="ffb-id-31cgbpaa fg-col col-xs-12 col-md-3 fg-text-dark"><a class="ffb-id-31cgbpab responsive-image-wrapper fg-text-dark" href="https://twitter.com/FedacGC?lang=es" target="_blank" title="Twitter de la Fedac"><img class="fg-image  img-responsive" src="https://cartaetnograficagc.org/wp-content/uploads/sites/7/2019/04/Twitter-1.png" alt="Twitter (1)" title="" =
+                    <div class="ffb-id-31cgbpaa fg-col col-xs-12 col-md-3 fg-text-dark"><a class="ffb-id-31cgbpab responsive-image-wrapper fg-text-dark" href="https://twitter.com/FedacGC?lang=es" target="_blank" title="Twitter de la Fedac"><img class="fg-image  img-responsive" src="{{ asset('images/wp_wrapper/Twitter-1.png') }}" alt="Twitter (1)" title="" =
                             "" ></a></div>
                 </div>
             </div>
