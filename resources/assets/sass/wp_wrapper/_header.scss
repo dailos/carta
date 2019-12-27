@@ -187,7 +187,9 @@ header .navbar-logo-wrap img
         margin:32px 0;
         padding:0;
     }
-
+    .header button:focus{
+        outline: none;
+    }
     .sr-only
     {
         position:absolute;
@@ -200,7 +202,7 @@ header .navbar-logo-wrap img
         padding:0;
     }
 
-    .header .navbar-toggle .toggle-icon
+    .header .navbar-toggle.collapsed .toggle-icon
     {
         position:relative;
         width:15px;
@@ -211,31 +213,58 @@ header .navbar-logo-wrap img
         transition-property:all;
         transition-timing-function:cubic-bezier(0.7,1,0.7,1);
     }
-    .header .navbar-toggle .toggle-icon:before, .header .navbar-toggle .toggle-icon:after {
+    .header .navbar-toggle.collapsed .toggle-icon:before, .header .navbar-toggle.collapsed .toggle-icon:after {
         position: absolute;
         left: 0;
         width: 15px;
         height: 1px;
         background: #34343c;
         content: " ";
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        transform: rotate(0);
+        transition-duration: 400ms;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.7,1,0.7,1);
     }
-    .header .navbar-toggle .toggle-icon:before {
+    .header .navbar-toggle.collapsed .toggle-icon:before {
         bottom: 10px;
-        -webkit-transform: rotate(0);
-        -moz-transform: rotate(0);
-        transform: rotate(0);
+    }
+    .header .navbar-toggle.collapsed .toggle-icon:after {
+        top: -5px;
+    }
+
+    .header .navbar-toggle .toggle-icon {
+        background: rgba(52,52,60,0);
+        position:relative;
+        width:15px;
+        height:1px;
+        display:inline-block;
+        //background:#34343c;
+    }
+    .header .navbar-toggle .toggle-icon:before, .header .navbar-toggle .toggle-icon:after{
+        position: absolute;
+        left: 0;
+        width: 15px;
+        height: 1px;
+        background: #34343c;
+        content: " ";
         transition-duration: 400ms;
         transition-property: all;
         transition-timing-function: cubic-bezier(0.7,1,0.7,1);
     }
-    header .navbar-toggle .toggle-icon:after {
+    .header .navbar-toggle .toggle-icon:before{
+        bottom: 5px;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    .header .navbar-toggle .toggle-icon:after {
         top: -5px;
-        -webkit-transform: rotate(0);
-        -moz-transform: rotate(0);
-        transform: rotate(0);
-        transition-duration: 400ms;
-        transition-property: all;
-        transition-timing-function: cubic-bezier(0.7,1,0.7,1);
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        transform: rotate(-45deg);
     }
 
     .header .navbar-actions
@@ -462,12 +491,7 @@ header .navbar-logo-wrap img
     {
         height:45px!important;
     }
-    .header .menu-container {
-        padding-left: 15px;
-        padding-right: 15px;
-        margin-left: 0;
-        margin-right: 0;
-    }
+
     .header .navbar>.container {
         margin-left: 0;
         margin-right: 0;
@@ -523,8 +547,26 @@ header .navbar-logo-wrap img
 }
 
 @media (max-width: 991px) {
+    .navbar-nav {
+        margin:auto;
+        display: flex;
+    }
+    .header .menu-container {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     .ffb-id-navigation-header .ark-header {
         border-bottom: 1px solid #e8e8ec;
+    }
+    .ark-header .navbar-nav .nav-item {
+        border-top: 1px solid #ebeef6;
+    }
+    .header ul.navbar-nav.no-ff>li>a, .header .navbar-nav .nav-item-child {
+        line-height: 1.4;
+        padding: 12px 12px 12px 0;
     }
     body > div.ffb-id-navigation-header.wrapper.ff-boxed-wrapper > header > nav {
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -542,8 +584,14 @@ header .navbar-logo-wrap img
         margin-bottom: 0;
         padding: 0px;
     }
+    .nav>li>a:focus, .nav>li>a:hover {
+        text-decoration: none;
+        text-decoration-style: initial;
+        text-decoration-color: initial;
+        background-color: #eee;
+    }
 
-    header .navbar-logo .navbar-logo-img {
+    .header .navbar-logo .navbar-logo-img {
         max-width: none !important;
     }
     .header .navbar-logo {
@@ -559,6 +607,10 @@ header .navbar-logo-wrap img
     }
     .header .navbar-collapse.collapse {
         display: none !important;
+    }
+    .header .navbar-collapse.collapse.show {
+        display: block !important;
+        overflow-y: auto !important;
     }
 }
 

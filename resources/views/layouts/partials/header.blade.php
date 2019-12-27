@@ -4,7 +4,7 @@
         <div class=" fg-container container fg-container-large fg-container-no-padding ">
             <div class="menu-container">
 
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="toggle-icon"></span>
                 </button>
