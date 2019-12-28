@@ -70,6 +70,26 @@ class Map
 	    Mapper::map(config('carta.coords_pico_nieves.latitud'), config('carta.coords_pico_nieves.longitud'), $options);
 	}
 
+    /**
+     * @param array $fichas
+     * @return string
+     * @throws \Throwable
+     */
+	public static function createKml($fichas = [])
+    {
+        $kml = '<?xml version="1.0" encoding="UTF-8"?><kml xmlns="http://www.opengis.net/kml/2.2"><Document>';
+        foreach ($fichas as $ficha) {
+            $coords = self::getCoords($ficha);
+            if ($coords) {
+                $descripcion = self::getDescription($ficha);
+                $tipologias = self::getTipologias($ficha);
+                $kml .= view('fichas.kml', compact('ficha', 'tipologias', 'descripcion', 'coords'))->render();
+            }
+        }
+        $kml .= '</Document></kml>';
+        return $kml;
+    }
+
 	/**
 	 * Crea un ventana informativa en el mapa para una ficha
 	 *
@@ -79,32 +99,47 @@ class Map
 	public static function createInfoWindow(Ficha $ficha)
 	{
 		if ($coords = self::getCoords($ficha)) {
-			$descripcion = strlen($ficha->descripcion) < 100 ? $ficha->descripcion : substr($ficha->descripcion, 0, 100);
-
-			$tipologias_arr = array();
-
-			if($ficha->actividad) {
-			    array_push($tipologias_arr, $ficha->actividad->nombre);
-			}
-			if($ficha->grupo) {
-			    array_push($tipologias_arr, $ficha->grupo->nombre);
-			}
-			if($ficha->tipo) {
-			    array_push($tipologias_arr, $ficha->tipo->nombre);
-			}
-
-			$tipologias = implode(', ', $tipologias_arr);
-
+			$descripcion = self::getDescription($ficha);
+			$tipologias = self::getTipologias($ficha);
 			// Inserta marca y ventana informativa
 		    Mapper::informationWindow($coords['lat'], $coords['lon'],
 		        view('fichas.partials.infowindow', compact('ficha', 'tipologias', 'descripcion'))->render(),
 		            ['title' => $ficha->denominacion, 'maxWidth'=> 250]);
-
 		   	return true;
 		} else {
 			return false;
 		}
 	}
+
+    /**
+     * @param Ficha $ficha
+     * @return bool|mixed|string
+     */
+	public static function getDescription(Ficha $ficha)
+    {
+        return strlen($ficha->descripcion) < 100 ? $ficha->descripcion : substr($ficha->descripcion, 0, 100);
+    }
+
+    /**
+     * @param Ficha $ficha
+     * @return string
+     */
+    public static function getTipologias(Ficha $ficha)
+    {
+        $tipologias = [];
+
+        if($ficha->actividad) {
+            array_push($tipologias, $ficha->actividad->nombre);
+        }
+        if($ficha->grupo) {
+            array_push($tipologias, $ficha->grupo->nombre);
+        }
+        if($ficha->tipo) {
+            array_push($tipologias, $ficha->tipo->nombre);
+        }
+
+        return implode(', ', $tipologias);
+    }
 
 	/**
 	 * Renderiza el mapa

@@ -46,6 +46,8 @@ Route::name('fichas.')->group(function () {
 
 	Route::get('resultados/descargar', 'FichaController@downloadResults')->name('download.results');
 
+    Route::get('resultados/descargarkml', 'FichaController@downloadKml')->name('download.kml');
+
 	// Acceso a ficha concreta
 	Route::post('acceso-directo', 'FichaController@searchByCode')->name('search.code');
 

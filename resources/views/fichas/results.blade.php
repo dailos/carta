@@ -49,9 +49,12 @@
 	</div>
 
 	<div id="fichas-results">
-		<div class="col-md-12 col-lg-4">
-			<a class="confirmation" href="#" v-on:click.prevent="confirmDownload"> Descargar listado </a>
-		</div>
+        <div class="col-md-12 col-lg-4">
+            <a class="confirmation" href="#" v-on:click.prevent="confirmDownload"> Descargar listado </a>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <a href="{{ route('fichas.download.kml', request()->query())  }}"> Descargar kml </a>
+        </div>
 	</div>
 
 	<div class="row justify-content-center">

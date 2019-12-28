@@ -244,17 +244,32 @@ class FichaController extends Controller
     */
     public function download($cod_ficha)
     {
-        // return view('pdf.ficha');
-        // PDF::setOptions(['defaultPaperSize' => 'a3']);
-        // $ficha = \App\Ficha::find(1);
         $ficha = Ficha::where('cod_ficha', $cod_ficha)->first();
 
         if ($ficha) {
-            $pdf = PDF::loadView('pdf.ficha', array('ficha' => $ficha))->setPaper('a3', 'landscape');
+            //return view('pdf.ficha', ['ficha' => $ficha]);
+            $pdf = PDF::loadView('pdf.ficha', ['ficha' => $ficha])->setPaper('a3', 'landscape');
             return $pdf->download('ficha_' . $ficha->cod_ficha . '.pdf');
         } else {
             abort(404);
         }
+    }
+
+    /**
+     * @param Request $request
+     * @return FichaSearch[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
+     */
+    private function getFichas(Request $request)
+    {
+        if ($request->query('points')) {
+            // Realiza la búsqueda en area del polígono
+            $fichas = FichaSearch::applyPolygonArea($request->query('points'));
+        } elseif ($request->query('radio')) {
+            $fichas = FichaSearch::applyCircleArea($request->query('latitud'), $request->query('longitud'), intval($request->query('radio')));
+        } else {
+            $fichas = FichaSearch::apply($request->query());
+        }
+        return $fichas;
     }
 
     /**
@@ -265,25 +280,33 @@ class FichaController extends Controller
     */
     public function downloadResults(Request $request)
     {
-        $params = array();
-        $fichas = null;
-
-        if ($request->query('points')) {
-            // Realiza la búsqueda en area del polígono
-            $fichas = FichaSearch::applyPolygonArea($request->query('points'));
-        } elseif ($request->query('radio')) {
-            $fichas = FichaSearch::applyCircleArea($request->query('latitud'), $request->query('longitud'), intval($request->query('radio')));
-        } else {
-            $fichas = FichaSearch::apply($request->query());
-        }
-
+        $fichas = $this->getFichas($request);
         $params = $request->query();
-        // dd($fichas);
-        // return view('pdf.results', compact('fichas', 'params'));
-        // dd(compact('fichas', 'params'));
         if ($fichas && $fichas->isNotEmpty()) {
             $pdf = PDF::loadView('pdf.results', compact('fichas', 'params'));
             return $pdf->download('listado.pdf');
+        } else {
+            abort(404);
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\StreamedResponse
+     * @throws \Throwable
+     */
+    public function downloadKml(Request $request)
+    {
+        $fichas = $this->getFichas($request);
+        if ($fichas && $fichas->isNotEmpty()) {
+            $kml = Map::createKml($fichas);
+            $headers = [
+                'Content-type'        => 'application/vnd.google-earth.kml+xml',
+                'Content-Disposition' => 'attachment; filename="listado.kml"',
+            ];
+            return response()->streamDownload(function () use ($kml, $headers) {
+                echo $kml;
+            }, 'listado.kml', $headers);
         } else {
             abort(404);
         }
