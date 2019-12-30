@@ -1,4 +1,10 @@
-<!-- Campos búsqueda simplea -->
+<!-- Campos búsqueda por municipio -->
+<div v-show="busqueda_select == 'municipios'">
+    <!--- IMAGENES DE 3 EN . -->
+    @include('fichas.partials.municipios')
+</div>
+
+<!-- Campos búsqueda simple -->
 <div v-show="busqueda_select == 'simple'">
 	<form action="{{ route('fichas.search') }}">
 		<div class="form-row">

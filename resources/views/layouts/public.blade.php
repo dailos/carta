@@ -25,34 +25,20 @@
 
     @include('layouts.partials.menu')
 
-    <div class="page-wrapper">
-        <section class="ffb-id-2h51fn7v fg-section fg-text-dark">
-            <div class="fg-container container fg-container-large fg-container-lvl--1 ">
-                <div class="fg-row row">
-                    <div class="ffb-id-2n0ocp1j fg-col col-xs-12 col-md-12 fg-text-dark">
-                        <div class="ffb-id-2n0ocson embed-video-external">
-                            <div class="embed-responsive">
-                                <div class="container py-5">
-                                    @yield('content')
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section class="container py-4">
+        @yield('content')
+    </section>
 
-        @include('layouts.partials.footer')
-    </div>
+    @include('layouts.partials.footer')
 
-<!-- Scripts -->
-<script src="{{ asset('js/manifest.js') }}"></script>
-<script src="{{ asset('js/vendor.js') }}"></script>
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/plugins.js') }}"></script>
+    <!-- Scripts -->
+    <script src="{{ asset('js/manifest.js') }}"></script>
+    <script src="{{ asset('js/vendor.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/plugins.js') }}"></script>
 
-<!-- App scripts -->
-@stack('scripts')
+    <!-- App scripts -->
+    @stack('scripts')
 </body>
 </html>
 

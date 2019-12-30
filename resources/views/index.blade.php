@@ -11,33 +11,14 @@
 
 	@include('shared_partials.errors')
 
-	<!--- TÍTULO Y DESCRIPCIÓN PARA EL BUSCADOR -->
+    <!--- SELECT PARA EL BUSCADOR -->
+    @include('shared_partials.fichas.search.select')
+
+    <!--- TÍTULO Y DESCRIPCIÓN PARA EL BUSCADOR -->
 	@include('shared_partials.fichas.search.title')
-	
-	<!--- SELECT PARA EL BUSCADOR -->
-	@include('shared_partials.fichas.search.select')
-	
+
 	<!--- CAMPOS PARA EL BUSCADOR -->
 	@include('shared_partials.fichas.search.fields')
-
-	
-	<!--- SELECT PARA EL POR ZONA --> 	
-	<div class="row mt-5">
-		<div class="col-lg-4"></div>
-		<div class="col-lg-4"></div>
-		<div class="col-lg-4">
-
-		  <select v-model="municipio_buscador" class="custom-select cajadelbuscador" id="inputGroupSelect01">
-				<option value="-">Todos los municipios</option>
-				<option v-for="municipio in municipios" :value="municipio.id" v-text="municipio.text"></option>
-		  </select>
-
-		</div>
-
-	</div>	
-	<br>	
-	<!--- IMAGENES DE 3 EN . --> 
-	@include('fichas.partials.municipios')
 	
 </div>
 @endsection
@@ -48,10 +29,10 @@
 
 @push('scripts')
 	<script>
-		var vm = new Vue({
+    var vm = new Vue({
 			el: "#app-search",
 			data: {
-				busqueda_select: @if(old('busqueda_select')) '{{ old('busqueda_select') }}' @else '' @endif,
+				busqueda_select: @if(old('busqueda_select')) '{{ old('busqueda_select') }}' @else 'municipios' @endif,
 				municipios: {!! $municipios->toJson() !!},
 				actividades: {!! $actividades->toJson() !!},
 				grupos: {!! $grupos->toJson() !!},
