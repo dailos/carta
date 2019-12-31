@@ -29,6 +29,12 @@
                 font-weight: bolder;
                 text-transform: uppercase;
             }
+            .dropdown-menu{
+                .dropdown-item.active, .dropdown-item:active{
+                    background: $green-fedac;
+                    font-weight: bolder;
+                }
+            }
         }
     }
 }
@@ -55,6 +61,25 @@
         a{
             color: white;
             text-decoration: none;
+            &:hover{
+                font-weight: bolder;
+            }
+        }
+
+    }
+}
+@include media-breakpoint-down(md) {
+    .ficha {
+        margin: auto;
+        min-width: 324px;
+        width: 50%;
+    }
+    .navbar .nav-item{
+        border-top: 1px solid white;
+        text-align: center;
+        .dropdown-menu {
+            text-align: center;
+            border: none;
         }
     }
 }

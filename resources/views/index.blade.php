@@ -11,15 +11,19 @@
 
 	@include('shared_partials.errors')
 
-    <!--- SELECT PARA EL BUSCADOR -->
-    @include('shared_partials.fichas.search.select')
+    <div class="card">
+        <div class="card-header">
+            <!--- SELECT PARA EL BUSCADOR -->
+            @include('shared_partials.fichas.search.select')
 
-    <!--- TÍTULO Y DESCRIPCIÓN PARA EL BUSCADOR -->
-	@include('shared_partials.fichas.search.title')
-
-	<!--- CAMPOS PARA EL BUSCADOR -->
-	@include('shared_partials.fichas.search.fields')
-	
+            <!--- TÍTULO Y DESCRIPCIÓN PARA EL BUSCADOR -->
+            @include('shared_partials.fichas.search.title')
+        </div>
+        <div class="card-body">
+            <!--- CAMPOS PARA EL BUSCADOR -->
+            @include('shared_partials.fichas.search.fields')
+        </div>
+    </div>
 </div>
 @endsection
 

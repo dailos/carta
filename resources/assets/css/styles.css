@@ -1,28 +1,9 @@
-
-.marg{
-	margin-top: 10px;	
-	margin-bottom: 31px;	
-	}
-
-.cajadelbuscador {	
-	height: 38px;
-	border: 1px solid #CCCCCC;	
-	border-radius: 4px;
-
-	}
-.cajadelbuscar{
-	width: 160px;
+.cajadelbuscador {
 	height: 38px;
 	border: 1px solid #CCCCCC;	
 	border-radius: 4px;
 	}
-.cajadelbuscarmunicipio{
-	width: 160px;
-	height: 38px;
-	border: 1px solid #CCCCCC;	
-	border-radius: 4px;	
-	float: right;	
-}
+
 label{
 	font-weight: bold;	
 }
@@ -32,15 +13,7 @@ input[type="text"]{
 	border: 1px solid #CCCCCC;	
 	border-radius: 4px;
 }
-.btn{
-	height: 40px;
-	width: 160px;	
-	border-radius: 5px;	
-	background-color: #EEEEEE;
-}
-.page-link{
-	color: #000;
-}
+
 .titulo{
 	font-weight: bold;
 }

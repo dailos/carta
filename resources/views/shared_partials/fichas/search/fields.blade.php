@@ -9,22 +9,24 @@
 	<form action="{{ route('fichas.search') }}">
 		<div class="form-row">
 			<div class="form-group col-lg-4">
-				<label for="query">Palabras clave</label>
+                <label for="query">Palabra(s) clave(s)</label>
 				<input class="form-control" id="query" name="query" type="text">
 			</div>
 		</div>
 		<div class="form-row">
 			<div class="form-group col-lg-4">
-				<label>Buscar</label>
-				<select class="custom-select cajadelbuscar" id="inputGroupSelect01" name="search_key">
-				<option value="todas" selected>Todas</option>
-				<option value="cualquiera">Cualquiera de</option>
-				</select> las palabras clave
-			</div>
-			<div class="form-group col-lg-4 left">
-				<button :disabled="errors.has('query')" type="submit" class="btn">Buscar</button>
+                <label for="inputGroupSelect01">Contienen (palabras claves)</label>
+				<select class="custom-select" id="inputGroupSelect01" name="search_key">
+				    <option value="todas" selected>Todas</option>
+				    <option value="cualquiera">Cualquiera de</option>
+				</select>
 			</div>
 		</div>
+        <div class="form-row">
+            <div class="form-group col-lg-4 left">
+                <button :disabled="errors.has('query')" type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
 	</form>
 </div>
 
@@ -53,27 +55,28 @@
 				<label>Tipo</label>
 				<select2 :options="tipos" :placeholder="placeholder_tipo" :allowclear="allow" class="form-control" name="tipo"></select2>
 			</div>		
-		</div>	
+		</div>
 
-		<div class="form-row">
-				<label for="query">Palabra(s) clave(s)</label>
-			<div class="input-group input-group-sm col-lg-4 mb-3">
-				<input id="query" class="form-control" name="query" type="text">
-			</div>
-		</div>	
+        <div class="form-row">
+            <div class="form-group col-lg-4">
+                <label for="query">Palabra(s) clave(s)</label>
+                <input class="form-control" id="query" name="query" type="text">
+            </div>
 
-		<div class="form-row">
 			<div class="form-group col-lg-4">
-				<label>Buscar</label>
-				<select class="custom-select cajadelbuscar" id="inputGroupSelect01" name="search_key">
+                <label for="inputGroupSelect01">Contienen (palabras claves)</label>
+				<select class="custom-select" id="inputGroupSelect01" name="search_key">
 				<option value="todas" selected>Todas</option>
 				<option value="cualquiera">Cualquiera de</option>
-				</select> las palabras clave					
-			</div>
-			<div class="form-group col-lg-4 left">
-				<button type="submit" class="btn">Buscar</button>
+				</select>
 			</div>
 		</div>
+        <div class="form-row">
+            <div class="form-group col-lg-4 left">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
+
 	</form>
 </div>
 
@@ -90,7 +93,7 @@
 			</div>
 
 			<div class="form-group col-lg-4 left">
-				<button :disabled="errors.has('cod_ficha')" type="submit" class="btn">Abrir ficha</button>
+				<button :disabled="errors.has('cod_ficha')" type="submit" class="btn btn-primary">Abrir ficha</button>
 			</div>
 		</div>
 		
@@ -105,13 +108,15 @@
 		@csrf
 		<div class="form-row">
 			<div class="form-group col-lg-4">
-				<label>Fichero ".KML" o ".KMZ &nbsp;</label>
+				<label>Fichero ".KML"</label>
 				<input type="file" name="kml" class="file-control" required>
 			</div>
-			<div class="form-group">
-				<button type="submit" class="btn">Enviar</button>
-			</div>
 		</div>
+        <div class="form-row">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
 	</form>
 </div>
 
@@ -141,7 +146,7 @@
 	</div>
 	<div class="form-row">
 		<div class="form-group">
-			<button type="submit" class="btn">Buscar</button>
+			<button type="submit" class="btn btn-primary">Buscar</button>
 		</div>
 	</div>
 	</form>
