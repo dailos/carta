@@ -21,3 +21,7 @@
 <template v-if="busqueda_select == 'geoprox'">
 	<p>Es posible realizar una búsqueda por proximidad geográfica, selecionando un punto en el mapa (Haciendo click sobre él) y definiendo el alcance del area.</p>
 </template>
+
+<template v-if="busqueda_select == 'export'">
+    <p>Es posible exportar todas las fichas en formato kml para su posterior conversión a diferentes formatos(shp, gis, dfx)</p>
+</template>

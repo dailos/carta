@@ -7,6 +7,7 @@
 	    <option value="acceso_directo">Acceso directo a la ficha</option>
 	    <option value="geo">Búsqueda geográfica (KML)</option>
 	    <option value="geoprox">Búsqueda próximidad geográfica</option>
+          <option value="export">Exportación de datos</option>
 	  </select>
 	</div>
 </div>

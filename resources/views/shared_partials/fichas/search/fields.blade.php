@@ -151,3 +151,12 @@
 	</div>
 	</form>
 </div>
+
+<!-- Exportación de datos -->
+<div v-show="busqueda_select == 'export'">
+    <div class="row align-items-center">
+        <div id="fichas-results" class="col-lg-2">
+            <a class="btn btn-primary" href="{{ route('fichas.download.kml', request()->query())  }}"> Descargar kml </a>
+        </div>
+    </div>
+</div>
