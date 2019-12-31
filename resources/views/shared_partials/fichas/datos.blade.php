@@ -150,7 +150,7 @@
 	<div class="form-group col-lg-4">
 		<label for="fecha_incoacion">Fecha incoación</label>
 		<div class='input-group date datetimepicker'>
-	        <input v-validate="'date_format:DD/MM/YYYY'" data-vv-as="@lang('validation.attributes.fecha_incoacion')" type='text' class="form-control{{ $errors->has('fecha_incoacion') ? ' is-invalid' : '' }}" name="fecha_incoacion" value="{{ form_value(isset($ficha) ? (isset($ficha->fecha_incoacion) ? $ficha->fecha_incoacion_formated : null) : null, 'fecha_incoacion', $errors) }}" autofocus/>
+	        <input v-validate="'date_format:dd/MM/yyyy'" data-vv-as="@lang('validation.attributes.fecha_incoacion')" type='text' class="form-control{{ $errors->has('fecha_incoacion') ? ' is-invalid' : '' }}" name="fecha_incoacion" value="{{ form_value(isset($ficha) ? (isset($ficha->fecha_incoacion) ? $ficha->fecha_incoacion_formated : null) : null, 'fecha_incoacion', $errors) }}" autofocus/>
 	        <div class="input-group-append input-group-addon">
 	            <span class="input-group-text">
 	            	<i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
@@ -165,7 +165,7 @@
 	<div class="form-group col-lg-4">
 		<label for="fecha_declaracion">Fecha declaración</label>
 		<div class='input-group date datetimepicker'>
-	        <input v-validate="'date_format:DD/MM/YYYY'" data-vv-as="@lang('validation.attributes.fecha_declaracion')" type='text' class="form-control{{ $errors->has('fecha_declaracion') ? ' is-invalid' : '' }}" name="fecha_declaracion" value="{{ form_value(isset($ficha) ? (isset($ficha->fecha_declaracion) ? $ficha->fecha_declaracion_formated : null) : null, 'fecha_declaracion', $errors) }}" autofocus/>
+	        <input v-validate="'date_format:dd/MM/yyyy'" data-vv-as="@lang('validation.attributes.fecha_declaracion')" type='text' class="form-control{{ $errors->has('fecha_declaracion') ? ' is-invalid' : '' }}" name="fecha_declaracion" value="{{ form_value(isset($ficha) ? (isset($ficha->fecha_declaracion) ? $ficha->fecha_declaracion_formated : null) : null, 'fecha_declaracion', $errors) }}" autofocus/>
 	        <div class="input-group-append input-group-addon">
 	            <span class="input-group-text">
 	            	<i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
