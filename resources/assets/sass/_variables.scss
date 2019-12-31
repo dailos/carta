@@ -20,30 +20,12 @@ $primary: $green-fedac !default;
 
 // Dropdowns
 
-//$dropdown-min-width:                10rem !default;
-//$dropdown-padding-y:                .5rem !default;
-//$dropdown-spacer:                   .125rem !default;
 $dropdown-font-size:                13px !default;
 $dropdown-color:                    #fff;
 $dropdown-bg:                       $green-fedac !default;
-//$dropdown-border-color:             rgba($black, .15) !default;
-//$dropdown-border-radius:            $border-radius !default;
 $dropdown-border-width:             0px;
-//$dropdown-inner-border-radius:      subtract($dropdown-border-radius, $dropdown-border-width) !default;
-//$dropdown-divider-bg:               $gray-200 !default;
-//$dropdown-divider-margin-y:         $nav-divider-margin-y !default;
 $dropdown-box-shadow:               none;
-
 $dropdown-link-color:               #fff !default;
-//$dropdown-link-hover-color:         darken($gray-900, 5%) !default;
-//$dropdown-link-hover-bg:            $gray-100 !default;
-
 $dropdown-link-active-color:        #fff;
 $dropdown-link-active-bg:           $green-fedac
 
-//$dropdown-link-disabled-color:      $gray-600 !default;
-
-//$dropdown-item-padding-y:           .25rem !default;
-//$dropdown-item-padding-x:           1.5rem !default;
-
-//$dropdown-header-color:             $gray-600 !default;
