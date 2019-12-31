@@ -215,7 +215,7 @@ class StoreFicha extends FormRequest
 
             // Comprueba si se eliminó alguna artibuto tipo select y checkbox
 
-            $attributes = ['localidad_id', 'actividad_id', 'grupo_id', 'tipo_id', 'antiguedad_id', 'uso_actual_id', 'estado_id', 'fragilidad_id', 'valor_cientifico_id', 'propiedad_id', 'clasificacion_suelo_id', 'calificacion_suelo_id', 'grado_proteccion_id'];
+            $attributes = ['localidad_id', 'actividad_id', 'grupo_id', 'tipo_id', 'antiguedad_id', 'uso_actual_id', 'estado_id', 'fragilidad_id', 'valor_cientifico_id', 'propiedad_id', 'clasificacion_suelo_id', 'calificacion_suelo_id', 'grado_proteccion_id', 'enlaces', 'multimedia'];
 
             // Añade valor nulo a los atritubos eliminados 
             foreach ($attributes as $attribute) {
