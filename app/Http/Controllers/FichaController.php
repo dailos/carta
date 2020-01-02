@@ -173,7 +173,7 @@ class FichaController extends Controller
             $kml = simplexml_load_file($path);
             $coordinates = $kml->Document->Placemark->Polygon->outerBoundaryIs->LinearRing->coordinates;
         }catch (\Exception $e){
-            return redirect()->route('home')->with('alert', 'Formato de fichero no válido');
+            return redirect()->route('home')->with('alert', 'Formato de fichero no válido, proporciona un .kml con un polígono cerrado');
         }
 
         $cordsData = trim(((string) $coordinates));
@@ -197,8 +197,7 @@ class FichaController extends Controller
                     array_push($points, $coordinateSet[0] . " " . $coordinateSet[1]);
                 // $polygon .= $coordinateSet[0] . ',' . $coordinateSet[1] . ";";
                 } else {
-                    Log::error('Unhandled case for data set : ' . $coordinateSet);
-                    abort(500);
+                    return redirect()->route('home')->with('alert', 'Formato de fichero no válido');
                 }
             }
 

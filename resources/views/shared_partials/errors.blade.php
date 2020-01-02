@@ -9,3 +9,9 @@
 	</div>
 </div>
 @endif
+
+@if(Session::has('alert'))
+    <div class="alert alert-danger">
+        {{ Session::get('alert') }}
+    </div>
+@endif
