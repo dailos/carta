@@ -19,7 +19,7 @@
             <!--- TÍTULO Y DESCRIPCIÓN PARA EL BUSCADOR -->
             @include('shared_partials.fichas.search.title')
         </div>
-        <div class="card-body">
+        <div class="card-body" v-cloak>
             <!--- CAMPOS PARA EL BUSCADOR -->
             @include('shared_partials.fichas.search.fields')
         </div>
