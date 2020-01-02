@@ -19,7 +19,10 @@
 			<label class="titulo">DATOS ETNOGRÁFICOS</label>
 			<div class="caja">
 				<p class="texto"><label class="subtitulo">CÓDIGO FICHA: &nbsp;</label> {{ sprintf("%05d", $ficha->cod_ficha) }}</p>
-                <p class="texto"><label class="subtitulo">ENLACE: &nbsp;</label> {{url(route('fichas.show', ['cod_ficha' => $ficha->cod_ficha])) }}</p>
+                <p class="texto"><label class="subtitulo">ENLACE: &nbsp;</label>
+                    <a href="{{url(route('fichas.show', ['cod_ficha' => $ficha->cod_ficha])) }}">
+                        {{url(route('fichas.show', ['cod_ficha' => $ficha->cod_ficha])) }}
+                    </a></p>
 				<p class="texto"><label class="subtitulo">NOMBRE: &nbsp;</label> {{ $ficha->denominacion }}</p>
 				<p class="texto"><label class="subtitulo">ACTIVIDAD: &nbsp;</label> @isset($ficha->actividad){{ $ficha->actividad->nombre }}@endisset</p>
 				<p class="texto"><label class="subtitulo">GRUPO / TIPO: &nbsp;</label> {{ $ficha->grupo_tipo }}</p>

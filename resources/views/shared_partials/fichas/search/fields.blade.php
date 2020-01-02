@@ -109,7 +109,7 @@
 		<div class="form-row">
 			<div class="form-group col-lg-4">
 				<label>Fichero ".KML"</label>
-				<input type="file" name="kml" class="file-control" required>
+				<input type="file" name="kml" class="file-control" accept=".kml" required>
 			</div>
 		</div>
         <div class="form-row">

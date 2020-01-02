@@ -23,6 +23,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
     	'node_modules/pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.min.css'
     ], 'public/css/plugins.css')
 	.sass('resources/assets/sass/app.scss', 'public/css')
-	.copy('resources/assets/css', 'public/css')
-    .copy('resources/assets/fonts', 'public/fonts')
+    .sass('resources/assets/sass/admin.scss', 'public/css')
+    .sass('resources/assets/sass/login.scss', 'public/css')
+    .sass('resources/assets/sass/pdf.scss', 'public/css')
 	.copy('resources/assets/img', 'public/images');

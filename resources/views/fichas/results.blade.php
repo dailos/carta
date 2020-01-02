@@ -36,7 +36,7 @@
         @if(isset($fichas) && $fichas->isNotEmpty())
 	        <div class="row mt-5">
 		        @foreach ($fichas as $ficha)
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 col-sm-6">
                         <div class="ficha">
                             <div class="row">
                                 <div class="col-lg-3">

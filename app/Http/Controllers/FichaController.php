@@ -169,8 +169,13 @@ class FichaController extends Controller
 
         $path = $validatedData['kml']->path();
 
-        $kml = simplexml_load_file($path);
-        $coordinates = $kml->Document->Placemark->Polygon->outerBoundaryIs->LinearRing->coordinates;
+        try{
+            $kml = simplexml_load_file($path);
+            $coordinates = $kml->Document->Placemark->Polygon->outerBoundaryIs->LinearRing->coordinates;
+        }catch (\Exception $e){
+            return redirect()->route('home')->with('alert', 'Formato de fichero no válido');
+        }
+
         $cordsData = trim(((string) $coordinates));
 
         // check if coordinate data is available
@@ -299,13 +304,12 @@ class FichaController extends Controller
     {
         $fichas = $this->getFichas($request);
         if ($fichas && $fichas->isNotEmpty()) {
-            $kml = Map::createKml($fichas);
             $headers = [
                 'Content-type'        => 'application/vnd.google-earth.kml+xml',
                 'Content-Disposition' => 'attachment; filename="listado.kml"',
             ];
-            return response()->streamDownload(function () use ($kml, $headers) {
-                echo $kml;
+            return response()->streamDownload(function () use ($fichas, $headers) {
+                echo view('kml.fichas', ['kmlInfo' => Map::getKmlInfo($fichas)])->render();;
             }, 'listado.kml', $headers);
         } else {
             abort(404);

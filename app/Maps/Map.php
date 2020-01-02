@@ -72,30 +72,30 @@ class Map
 
     /**
      * @param array $fichas
-     * @return string
-     * @throws \Throwable
+     * @return array
      */
-	public static function createKml($fichas = [])
+	public static function getKmlInfo($fichas = [])
     {
-        $kml = '<?xml version="1.0" encoding="UTF-8"?><kml xmlns="http://www.opengis.net/kml/2.2"><Document>';
+        $kmlinfo = [];
         foreach ($fichas as $ficha) {
             $coords = self::getCoords($ficha);
             if ($coords) {
-                $descripcion = self::getDescription($ficha);
-                $tipologias = self::getTipologias($ficha);
-                $kml .= view('fichas.kml', compact('ficha', 'tipologias', 'descripcion', 'coords'))->render();
+                $kmlinfo[] = [
+                    'ficha' => $ficha,
+                    'coords' => $coords,
+                    'descripcion' => self::getDescription($ficha),
+                    'tipologias' => self::getTipologias($ficha),
+                ];
             }
         }
-        $kml .= '</Document></kml>';
-        return $kml;
+        return $kmlinfo;
     }
 
-	/**
-	 * Crea un ventana informativa en el mapa para una ficha
-	 *
-     * @param  \App\Ficha  $ficha
-     * @return boolean
-	 */
+    /**
+     * @param Ficha $ficha
+     * @return bool
+     * @throws \Throwable
+     */
 	public static function createInfoWindow(Ficha $ficha)
 	{
 		if ($coords = self::getCoords($ficha)) {
