@@ -24,7 +24,7 @@ Auth::routes();
 // 	$c['lon'] = -15.464307;
 
 // 	$polyline = array($a, $b, $c);
-	
+
 // 	// point
 // 	$point['lat'] = 28.107480;
 // 	$point['lon'] = -15.443879;
@@ -102,7 +102,7 @@ Route::group(['middleware' => ['role:admin|collaborator']], function () {
 
 // Rutas del administrador
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
-	
+
 	Route::resource('municipios', 'MunicipioController')->only(['index', 'store', 'update', 'destroy']);
 	Route::resource('localidades', 'LocalidadController')->parameters([
 	    'localidades' => 'localidad'
@@ -153,7 +153,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
 
 	    Route::get('collaborators/delete/{user}', ['as' => 'collaborators.delete', 'uses' => 'CollaboratorController@destroy']);
 	});
-	
+
 });
 
 Route::get('fotos/{media_id}', function ($foto_id) {
