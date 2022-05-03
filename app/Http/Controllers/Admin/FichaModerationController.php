@@ -50,7 +50,7 @@ class FichaModerationController extends Controller
         }
 
         $map = null;
-        
+
         if(Map::create($ficha)) {
             $map = Map::render();
         }
@@ -145,9 +145,11 @@ class FichaModerationController extends Controller
 
         $moderableRecord->fields = $validated;
 
-        $moderableRecord->apply($comment);
-
-        session()->flash('message', 'La moderación de ficha ha sido aceptada con éxito');
+        if($moderableRecord->apply($comment)){
+            session()->flash('message', 'La moderación de ficha ha sido aceptada con éxito');
+        }else{
+            session()->flash('message', 'La moderación de ficha ha fallado, posiblemente no tenga permiso de moderador');
+        }
 
         return redirect()->route('admin.moderacion.index');
     }
@@ -162,9 +164,9 @@ class FichaModerationController extends Controller
     public function accept(Request $request, Fotos $fotos)
     {
         $moderableRecord = ModerableRecord::findOrFail($request->input('moderableId'));
-        
+
         $comment = $request->has('comment') ? $request->input('comment') : null;
-        
+
         if ($moderableRecord->action === 'create') {
             $moderableRecord->deferred_actions = [
                 'setNewCodFicha' => [Ficha::max('cod_ficha') + 1],
@@ -178,9 +180,11 @@ class FichaModerationController extends Controller
 
         $moderableRecord->save();
 
-        $moderableRecord->apply($comment);
-
-        session()->flash('message', 'La moderación de ficha ha sido aceptada con éxito');
+        if($moderableRecord->apply($comment)){
+            session()->flash('message', 'La moderación de ficha ha sido aceptada con éxito');
+        }else{
+            session()->flash('message', 'La moderación de ficha ha fallado, posiblemente no tenga permiso de moderador');
+        }
 
         return redirect()->route('admin.moderacion.index');
     }
@@ -199,7 +203,7 @@ class FichaModerationController extends Controller
         ]);
 
         $moderableRecord = ModerableRecord::findOrFail($request->input('moderableId'));
-        
+
         $moderableRecord->reject($validatedData['comment']);
 
         // Borrar fotos subidas

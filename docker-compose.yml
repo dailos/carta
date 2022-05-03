@@ -1,0 +1,13 @@
+version: '3'
+
+volumes:
+  app_volume:
+    driver: local
+
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/app
+    tty: true

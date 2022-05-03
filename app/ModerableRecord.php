@@ -108,7 +108,7 @@ class ModerableRecord extends Model
      *
      * @return void
      */
-    public function apply($comment = null) : void
+    public function apply($comment = null) : bool
     {
         if (Auth::user()->can('moderate') || ($this->moderable_type == 'App\User' && Auth::user()->can('validate_users'))){
             // In case of a create action the actual DB record doesnt exist yet
@@ -126,8 +126,10 @@ class ModerableRecord extends Model
             $this->update(['status' => static::APPROVED, 'comment' => $comment]);
 
             event(new ModerationApproved($this));
+
+            return true;
         }
-        return;
+        return false;
     }
 
     /**
@@ -158,7 +160,7 @@ class ModerableRecord extends Model
     public function reject($comment = null) : void
     {
         if (Auth::user()->can('moderate') || ($this->moderable_type == 'App\User' && Auth::user()->can('validate_users'))){
-            $this->update(['status' => static::REJECTED, 'comment' => $comment]);    
+            $this->update(['status' => static::REJECTED, 'comment' => $comment]);
             event(new ModerationRejected($this));
         }
         return;

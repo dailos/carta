@@ -162,7 +162,7 @@ class Ficha extends Model
     }
 
     /**
-     * 
+     *
      *
      *
      */
@@ -231,11 +231,32 @@ class Ficha extends Model
         }
     }
 
+    public function setSaqueosAttribute($value)
+    {
+        $this->attributes['saqueos'] = $value ? 1 : 0;
+    }
+
+    public function setDestObrasAttribute($value)
+    {
+        $this->attributes['dest_obras'] = $value ? 1 : 0;
+    }
+
+    public function setAlteNaturalesAttribute($value)
+    {
+        $this->attributes['alte_naturales'] = $value ? 1 : 0;
+    }
+
+    public function setOtrasAttribute($value)
+    {
+        $this->attributes['otras'] = $value ? 1 : 0;
+    }
+
     public function setNewCodFicha($codFicha)
     {
         $this->cod_ficha = $codFicha;
         $this->save();
     }
+
 
     /**
      * Obtener la antiguedad a la que pertenece la ficha.
