@@ -24,7 +24,7 @@
                         <a href="https://culturatradicionalgc.org" class="nav-link">Cultura Tradicional</a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://fedac.org/fotos-antiguas" class="nav-link">Fotos antiguas</a>
+                        <a href="https://www.fotosantiguascanarias.org/web/" class="nav-link">Fotos antiguas</a>
                     </li>
                     <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
