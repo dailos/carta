@@ -35,7 +35,6 @@ class StoreFicha extends FormRequest
     public function withValidator($validator)
     {
         $validator->after(function ($validator) {
-
             // Validaciones adicionales para las fotos
             if ($this->has('fotos')) {
                 $i = 0;
@@ -43,7 +42,9 @@ class StoreFicha extends FormRequest
                     $i++;
                     // Si tiene asignado id es que es una foto ya existente, lo ignoramos.
                     // Comprueba que se haya seleccionado fichero
+
                     if (!isset($value['id']) && !$this->hasFile('fotos.' . $key . '.fichero')) {
+
                         $validator->errors()->add('fotos', 'Compruebe que ha seleccionado un fichero para la foto ' . $i . '.');
                     }
                 }
@@ -66,11 +67,11 @@ class StoreFicha extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @returhttps://tools.siteground.com/ftp?siteId=S1FuMFpIOE5KQT09n array
      */
     public function rules()
     {
-        // dd($this->all());
+        //dd($this->all());
         $rules = [
             'X' => 'required_with_all:Y,zona_UTM|nullable|numeric|between:100000,999999',
             'Y' => 'required_with_all:X,zona_UTM|nullable|numeric|between:0,10000000',
@@ -121,9 +122,9 @@ class StoreFicha extends FormRequest
             'sugerencias' => '',
             'obs_generales' => '',
             'fotos' => 'required|array|between:1,' . config('carta.maxFotos'),
-            'fotos.*.fichero' => 'image|mimes:jpeg,bmp,png',
+            //'fotos.*.fichero' => 'image|mimes:jpeg,bmp,png',
             'croquis' => 'array|max:' . config('carta.maxCroquis'),
-            'croquis.*.fichero' => 'image|mimes:jpeg,bmp,png',
+            //'croquis.*.fichero' => 'image|mimes:jpeg,bmp,png',
             'enlaces.*.texto' => 'string|nullable|max:255',
             'enlaces.*.url' => 'required|url|max:255',
             'multimedia.*.descripcion' => 'string|nullable|max:255',
@@ -192,7 +193,7 @@ class StoreFicha extends FormRequest
             foreach ($validated['contactos'] as $key => $value) {
                 ($array = array_filter($value)) ? $validated['contactos'][$key] = $array : $validated['contactos'][$key] = null;
             }
-            
+
             $contactos = index_sort(array_filter($validated['contactos']));
 
             if (empty($contactos)) {
@@ -210,14 +211,14 @@ class StoreFicha extends FormRequest
         if ($this->filled('fecha_declaracion')) {
             $validated['fecha_declaracion'] = Carbon::createFromFormat('d/m/Y', $validated['fecha_declaracion'])->format('Y-m-d');
         }
-        
+
         if ($ficha) {
 
             // Comprueba si se eliminó alguna artibuto tipo select y checkbox
 
             $attributes = ['localidad_id', 'actividad_id', 'grupo_id', 'tipo_id', 'antiguedad_id', 'uso_actual_id', 'estado_id', 'fragilidad_id', 'valor_cientifico_id', 'propiedad_id', 'clasificacion_suelo_id', 'calificacion_suelo_id', 'grado_proteccion_id', 'enlaces', 'multimedia'];
 
-            // Añade valor nulo a los atritubos eliminados 
+            // Añade valor nulo a los atritubos eliminados
             foreach ($attributes as $attribute) {
                 if ($ficha->getAttribute($attribute) != null && !$this->has($attribute)) {
                     $validated[$attribute] = null;

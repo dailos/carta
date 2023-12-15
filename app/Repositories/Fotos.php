@@ -28,10 +28,10 @@ class Fotos
                 
                 // Procesar nueva foto subida
                 if ($foto_id == null) {
-                    // Alamacenar fichero
-                    $file = $value['fichero'];
+                    // Alamacenar fichero                    
+                    $file = $value['fichero'];                   
                     $path = $file->store(config('carta.fotoStoragePath'));
-
+                    
                     $foto = new Foto();
 
                     // Crear foto
@@ -75,7 +75,7 @@ class Fotos
  	 */
 	public function deleteDiff($fotos1, $fotos2) {
 		// Borrar fotos
-		if ($fotos1['fotos']) {
+		if ($fotos1 && $fotos1['fotos']) {
 			if ($fotos2['fotos']) {
 				$diff = array_diff($fotos1['fotos'], $fotos2['fotos']);
 			    $this->delete($diff);
@@ -85,7 +85,7 @@ class Fotos
 		}
 
 		// Borrar croquis
-		if ($fotos1['croquis']) {
+		if ($fotos1 && $fotos1['croquis']) {
 			if ($fotos2['croquis']) {
 				$diff = array_diff($fotos1['croquis'], $fotos2['croquis']);
 			   	$this->delete($diff);

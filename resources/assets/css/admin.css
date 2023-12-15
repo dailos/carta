@@ -1,0 +1,247 @@
+
+body{
+	background-color: #003D4D;
+}
+header{
+	color: #fff;
+}
+.title{
+	margin-bottom: 0px;
+	text-align: center;
+	color: #FFFFFF;	
+	font-size: 20px;	
+	font-weight: 500;	
+}
+.top-menu {
+	color: #fff;
+	text-align: center;
+}
+.top-menu>a {
+	color: #fff;
+}
+.top-menu>a:hover {
+	color: #bbb;
+}
+.top-menu>p {
+	padding: 0px;
+	margin: 0px;
+}
+.container-fluid{
+	background-color:#fff;
+	justify-content: center;
+}
+a:hover{
+	color: #003D4E;
+}
+.btn-outline-secondary{
+	color: #003D4E;
+	border: 1px solid #003D4E;
+}
+.btn-outline-secondary:hover{
+	border: 1px solid #003D4E;
+	background-color: #003D4E;
+	color: white;
+}
+.login{
+	text-align: center;
+	width: 100%;
+	max-width: 330px;
+	margin: 0 auto;
+}
+.btnmenu{
+	 background: transparent;
+	 color: #fff;
+	 border: none;
+}
+.btnmenu:hover{
+	background: transparent;
+	color: #fff;
+	border: none;
+}
+
+.page-link{
+	color: #003D4E;
+}
+.show > .btn-primary.dropdown-toggle{
+	background: transparent;
+	color: #fff;
+	border: none;	
+}
+label{
+	color: #003D4E;
+	font-weight: bold;
+}
+footer{
+	text-align: center;
+}
+ul{
+	list-style: none;	
+}
+ul.errors{
+	list-style: initial;
+}
+a{
+	color: #003D4E;
+}
+.information{
+	color:  #777777;
+	font-size: 14px;
+}
+.table td{
+	text-align: left;
+}
+
+/* Gestión usuarios */
+
+.card{
+	box-shadow: 2px 2px 9px 0 rgba(0,0,0,0.5); 
+	margin-bottom: 25px
+}
+.card:hover{
+    -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+    box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.75);
+}
+
+/* Fotos - Botón de seleccionar fichero */
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    cursor: pointer; /* "hand" cursor */
+    text-align: center;
+    width: 100%;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: red;
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+/* Fotos - Botón de eliminar */
+
+.img-wrapper {
+  position: relative;
+ }
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 100%;
+  left: 0%;
+  right: 0;
+  text-align: center;
+}
+
+.img-overlay i {
+	cursor: pointer;
+	color: red;
+}
+
+.img-overlay i:hover {
+	color: white;
+}
+
+.img-overlay:before {
+  content: ' ';
+  display: block;
+  /* adjust 'height' to position overlay content vertically */
+  height: 50%;
+}
+
+
+/* Fotos y croquis tabs */
+
+.tabs {
+    overflow: hidden;
+  	/*margin-left: 20px;*/
+    margin-bottom: -2px; // hide bottom border
+    color: #888;
+}
+
+.tabs ul {
+    list-style-type: none;
+    margin-left: 20px;
+}
+
+.tabs a{
+    float: left;
+    cursor: pointer;
+    padding: 12px 24px;
+    transition: background-color 0.2s;
+    border: 1px solid #ccc;
+    border-right: none;
+    background-color: #f1f1f1;
+    border-radius: 10px 10px 0 0;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+.tabs a:last-child { 
+    border-right: 1px solid #ccc;
+}
+
+/* Change background color of tabs on hover */
+.tabs a:hover {
+    background-color: #aaa;
+    color: #fff;
+}
+
+/* Styling for active tab */
+.tabs a.active {
+    background-color: #fff;
+    color: #484848;
+    border-bottom: 2px solid #fff;
+    cursor: default;
+}
+
+/* Style the tab content */
+.tabcontent {
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 0px 10px 10px 10px;
+  	box-shadow: 3px 3px 6px #e1e1e1
+}
+
+/* Estilo para mensajes de validación */
+.veevalidate-error {
+	font-size: 80%;
+	color: #dc3545;
+}
+
+/* Aumenta el alto de la caja del select2 */
+.select2-container .select2-selection--single, 
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+	height: calc(2.19rem + 2px) !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+	line-height: calc(2.19rem + 2px) !important;
+}
+
+/* Estilo para los mapas */
+.map-show {
+	width: 100%;
+	height: 300px;
+}

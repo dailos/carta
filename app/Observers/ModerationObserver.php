@@ -70,7 +70,7 @@ class ModerationObserver
             foreach($model->getDirty() as $key=>$dirty){
                 $get_dirty_array[$key] = is_json($dirty, true) ?: $dirty;
             }
-
+            
             $moderableRecord = $model->moderableRecords()->create([
                 'user_id'=> Auth::id(),
                 'action' => 'update',

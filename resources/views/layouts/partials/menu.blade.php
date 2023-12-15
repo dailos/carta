@@ -18,7 +18,7 @@
                         <a href="https://fedac.org/actividades" class="nav-link">Actividades</a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://fedac.org/artesanos" class="nav-link">Artesanos</a>
+                        <a href="https://artesanos.fedac.org/index?page=1&per_page=12&random=310" class="nav-link">Artesanos</a>
                     </li>
                     <li class="nav-item">
                         <a href="https://culturatradicionalgc.org" class="nav-link">Cultura Tradicional</a>

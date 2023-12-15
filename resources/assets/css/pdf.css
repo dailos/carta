@@ -1,0 +1,61 @@
+body{
+	/*background-color: #003D4D*/
+}
+.container{
+	width: 100%;
+	height: auto;
+	padding: 10px;
+	box-shadow: 0 2px 13px 0 #003D4D;
+	background-color: #fff;
+}
+.columna{
+	width: 475px;
+	height: auto;
+	float: left;
+	padding: 10px;
+}
+.titulo {
+	font-weight: 800;
+	font-size: 14px;
+}
+.caja {
+	border-top: 1px solid black;
+	margin-bottom: 5px;
+}
+.subtitulo{
+	font-weight: bold;
+}
+.texto {
+	font-size:12px;
+}
+.vacio {
+	margin: 0px;
+	padding: 0px;
+}
+.mapa{
+	width: 100%;
+	height: auto;
+}
+.foto{
+	height: auto;
+	width: 300px;
+}
+.foto-listado {
+	float: left;
+	margin-right: 15px;
+}
+.foto-listado>img {
+	height: auto;
+	width: 50px;
+	margin-right: 10px;
+}
+.texto-listado {
+	font-size: 12px
+}
+.clear-left {
+	clear: left;
+	margin-top: 25px;
+}
+.page-break {
+    page-break-after: always;
+}

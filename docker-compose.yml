@@ -1,13 +1,62 @@
-version: '3'
-
-volumes:
-  app_volume:
-    driver: local
-
+version: "3.7"
 services:
   app:
     build:
-      context: .
+      args:
+        user: www
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: laravel-image
+    container_name: carta-app
+    restart: unless-stopped
+    working_dir: /var/www/
     volumes:
-      - .:/app
-    tty: true
+      - ./:/var/www
+      - ./infra/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - app-network
+
+  db:
+    image: mysql:5.7
+    container_name: carta-db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./infra/mysql/my.cnf:/etc/mysql/my.cnf
+      - ./infra/mysql/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: carta-nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www
+      - ./infra/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app-network
+  npm:
+    image: node:12
+    container_name: carta-npm
+    volumes:
+      - ./:/var/www
+    working_dir: /var/www
+    entrypoint: [ 'npm', '--no-bin-links' ]
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

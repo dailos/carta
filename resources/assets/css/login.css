@@ -1,0 +1,53 @@
+
+body{
+	background-color: #003D4D;
+}
+header{
+	color: #fff;
+}
+.title{
+	margin-bottom: 0px;
+	text-align: center;
+	color: #FFFFFF;	
+	font-size: 20px;	
+	font-weight: 500;	
+}
+.container-fluid{
+	background-color:#fff;
+	padding-top: 150px;
+	padding-bottom: 150px;
+	justify-content: center;
+}
+input[type="text"],input[type="password"]{
+	border: 0;
+	border-bottom: 1px solid #979797;
+}
+
+a:hover{
+	color: #003D4E;
+}
+.login{
+	text-align: center;
+	width: 100%;
+	max-width: 330px;
+	margin: 0 auto;
+}
+.btn{
+	background-color: transparent;
+	border: 1px solid #003D4E;	
+	color: #003D4E;
+	border-radius: 8px;
+}
+.btn:hover{
+	background-color: #003D4E;
+	border: 1px solid #003D4E;	
+	color: #fff;
+	border-radius: 8px;
+}
+label{
+	color: #003D4E;
+	font-weight: bold;
+}
+footer{
+	text-align: center;
+}

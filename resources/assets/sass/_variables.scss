@@ -1,31 +1,8 @@
-//General
-$green-fedac:#086c00 !default;
+
 // Body
 $body-bg: #f5f8fa;
 
-//Menu
-$navbar-light-color:white;
-$navbar-light-hover-color:white;
-$navbar-light-active-color:white;
-
-    // Typography
+// Typography
 $font-family-sans-serif: "Raleway", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
-
-$enable-shadows:   true;
-$enable-gradients: true;
-
-$primary: $green-fedac !default;
-
-// Dropdowns
-
-$dropdown-font-size:                13px !default;
-$dropdown-color:                    #fff;
-$dropdown-bg:                       $green-fedac !default;
-$dropdown-border-width:             0px;
-$dropdown-box-shadow:               none;
-$dropdown-link-color:               #fff !default;
-$dropdown-link-active-color:        #fff;
-$dropdown-link-active-bg:           $green-fedac
-

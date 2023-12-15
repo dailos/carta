@@ -1,0 +1,2 @@
+Install npm: docker-compose run npm --rm install
+Compile assets: docker-compose run npm --rm run prod
