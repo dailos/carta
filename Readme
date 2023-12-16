@@ -1,2 +1,9 @@
+You only need docker to be installed in your system
+Copy .env.example to .env
+run docker-compose up -d to start developing
+docker-compose down to stop developing
+docker-compose exec app bash to access to shell (for example, to run composer install)
+
+-- Assets
 Install npm: docker-compose run npm --rm install
-Compile assets: docker-compose run npm --rm run prod
+Compile assets: docker-compose run npm --rm  prod
