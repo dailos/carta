@@ -21,7 +21,7 @@ class FichaController extends Controller
      */
     public function fichas()
     {
-       
+
         $fichas = Ficha::with('actividad', 'grupo', 'tipo', 'municipio', 'localidad')->select('fichas.*');
 
         return Datatables::of($fichas)
@@ -55,7 +55,7 @@ class FichaController extends Controller
     public function create()
     {
         $models = Fichas::getRelatedModels();
-        
+
         return view('admin.fichas.create', $models);
     }
 
@@ -95,7 +95,7 @@ class FichaController extends Controller
         $tipos_contacto = TipoContacto::all();
 
         $map = null;
-        
+
         if(Map::create($ficha)) {
             $map = Map::render();
         }
@@ -136,7 +136,7 @@ class FichaController extends Controller
         $ficha->save();
 
         session()->flash('message', 'La ficha ha sido actualizada con éxito');
-        
+
         return redirect()->route('admin.fichas.index');
     }
 
@@ -151,7 +151,7 @@ class FichaController extends Controller
     {
         // Comprobar si tiene moderaciones pendientes y se eliminan
         $pending = $ficha->moderableRecords()->pending()->get();
-        
+
         if ($pending->isNotEmpty()) {
             foreach ($pending as $moderation) {
                 $moderation->delete();
@@ -165,8 +165,18 @@ class FichaController extends Controller
         $ficha->delete();
 
         session()->flash('message', 'La ficha ha sido eliminada con éxito');
-        
+
         return redirect()->route('admin.fichas.index');
+    }
+
+    /**
+     * Exports all the fichas to cvs
+     *
+     * @return void
+     */
+    public function csvExport()
+    {
+
     }
 
 }

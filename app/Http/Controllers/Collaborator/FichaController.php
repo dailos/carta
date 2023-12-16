@@ -75,7 +75,7 @@ class FichaController extends Controller
         $validated = $request->process();
 
         $validated = array_filter($validated);
-        
+
         // Moderar la creación de un modelo
         $ficha = Ficha::make($validated);
         $ficha->moderate()->save();
@@ -104,7 +104,7 @@ class FichaController extends Controller
         $pending = $ficha->moderableRecords()->pending()->first();
 
         $map = null;
-        
+
         if(Map::create($ficha)) {
             $map = Map::render();
         }
@@ -123,7 +123,7 @@ class FichaController extends Controller
         $models = Fichas::getRelatedModels($ficha);
 
         $pending = $ficha->moderableRecords()->pending()->first();
-   
+
         return view('collaborator.fichas.edit', array_merge($models, compact('ficha', 'pending')));
     }
 
@@ -153,6 +153,16 @@ class FichaController extends Controller
         }
 
         return redirect()->route('collaborator.fichas.index');
+    }
+
+    /**
+     * Exports all the fichas to cvs
+     *
+     * @return void
+     */
+    public function csvExport()
+    {
+
     }
 
 }

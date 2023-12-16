@@ -16,6 +16,10 @@
 			@include('shared_partials.fichas.filtersmenu')
 		</div>
 
+        <div class="col-lg-2 mb-2">
+            <a href="{{ route('admin.fichas.csvexport') }}" class="btn btn-outline-secondary btn-block">Exportar a CSV</a>
+        </div>
+
 	</div>
 
 	@include('shared_partials.fichas.filtros')

@@ -24,7 +24,7 @@ Auth::routes();
 // 	$c['lon'] = -15.464307;
 
 // 	$polyline = array($a, $b, $c);
-	
+
 // 	// point
 // 	$point['lat'] = 28.107480;
 // 	$point['lon'] = -15.443879;
@@ -70,6 +70,9 @@ Route::prefix('user')->name('collaborator.')->middleware(['auth', 'role:collabor
 		// Ruta pagina incial
 		Route::get('/', ['as' => 'index', 'uses' => 'FichaController@index']);
 
+        //Export
+        Route::get('/csvexport', ['as' => 'fichas.csvexport', 'uses' => 'FichaController@csvExport']);
+
 		// Rutas de gestión de fichas
 		Route::resource('fichas', 'FichaController')->except('destroy');
 		Route::post('datatable', 'FichaController@fichas')->name('fichas.datatable'); // Ajax para el datatable
@@ -102,7 +105,7 @@ Route::group(['middleware' => ['role:admin|collaborator']], function () {
 
 // Rutas del administrador
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
-	
+
 	Route::resource('municipios', 'MunicipioController')->only(['index', 'store', 'update', 'destroy']);
 	Route::resource('localidades', 'LocalidadController')->parameters([
 	    'localidades' => 'localidad'
@@ -112,6 +115,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
 	Route::namespace('Admin')->group(function () {
 		// Ruta pagina incial
 	    Route::get('/', ['as' => 'index', 'uses' => 'FichaController@index']);
+
+        //Export
+        Route::get('/csvexport', ['as' => 'fichas.csvexport', 'uses' => 'FichaController@csvExport']);
 
 	    // Rutas configuración
 	    Route::resource('configuracion', 'ConfigController')->only(['index', 'store', 'update', 'destroy']);
@@ -153,7 +159,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
 
 	    Route::get('collaborators/delete/{user}', ['as' => 'collaborators.delete', 'uses' => 'CollaboratorController@destroy']);
 	});
-	
+
 });
 
 Route::get('fotos/{media_id}', function ($foto_id) {
