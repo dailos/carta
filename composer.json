@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^7.4.0",
+        "php": "^7.4.33",
         "barryvdh/laravel-dompdf": "0.8.3",
         "cornford/googlmapper": "^2.33",
         "fideloper/proxy": "^4.0",
