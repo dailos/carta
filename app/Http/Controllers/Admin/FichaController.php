@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exporters\FichasCSVExporter;
 use App\Ficha;
 use App\TipoContacto;
 use App\Repositories\Fichas;
@@ -10,6 +11,7 @@ use App\Http\Requests\StoreFicha;
 use App\Http\Controllers\Controller;
 use Yajra\Datatables\Datatables;
 use App\Maps\Map;
+use League\Csv\Writer;
 
 class FichaController extends Controller
 {
@@ -174,9 +176,9 @@ class FichaController extends Controller
      *
      * @return void
      */
-    public function csvExport()
+    public function csvExport(FichasCSVExporter $exporter)
     {
-
+        echo $exporter->export(Ficha::all());
     }
 
 }

@@ -101,7 +101,7 @@ return [
     | This set the Faker\Factory locale to return localized data.
     |
     */
-    
+
     'faker_locale' => 'es_ES',
 
     /*
