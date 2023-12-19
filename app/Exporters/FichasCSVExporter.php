@@ -108,7 +108,7 @@ class FichasCSVExporter
      */
     private function resolveBool(bool $value = null) : string
     {
-        if(isNull($value)){
+        if(is_null($value)){
             return "";
         }
         return $value ? 'Sí' : 'No';
