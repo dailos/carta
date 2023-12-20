@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Collaborator;
 
+use App\Exporters\FichasCSVExporter;
 use App\Ficha;
 use App\TipoContacto;
 use App\Http\Requests\StoreFicha;
@@ -160,9 +161,9 @@ class FichaController extends Controller
      *
      * @return void
      */
-    public function csvExport()
+    public function csvExport(FichasCSVExporter $exporter)
     {
-
+        echo $exporter->export(Ficha::all());
     }
 
 }
