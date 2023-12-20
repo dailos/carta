@@ -95,7 +95,7 @@ class FichasCSVExporter
             $ficha->grado_proteccion_id ? $ficha->grado_proteccion->nombre : "",
             $ficha->intervenciones ?? "",
             $ficha->sugerencias ?? "",
-            $fichas->obs_generales ?? "",
+            $ficha->obs_generales ?? "",
             $ficha->fotos['fotos'] ? json_encode($ficha->fotos['fotos']) : "",
             $ficha->fotos['croquis'] ? json_encode($ficha->fotos['croquis']) : "",
             $ficha->enlaces ? json_encode($ficha->enlaces) : "",
