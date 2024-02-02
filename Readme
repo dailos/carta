@@ -1,5 +1,21 @@
+
+
 You only need docker to be installed in your system
 Copy .env.example to .env
+
+---------------
+NOTE: if php is not present you can still install Sail with:
+
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/opt \
+    -w /opt \
+    laravelsail/php80-composer:latest \
+    composer install --ignore-platform-reqs
+---------------------
+
+
+
 run docker-compose up -d to start developing
 docker-compose down to stop developing
 docker-compose exec app bash to access to shell (for example, to run composer install)
@@ -9,12 +25,4 @@ Install npm: docker-compose run npm --rm install
 Compile assets: docker-compose run npm --rm  prod
 
 
-NOTE: if php is not present you can still install sail with:
-
-docker run --rm \
-    -u "$(id -u):$(id -g)" \
-    -v $(pwd):/opt \
-    -w /opt \
-    laravelsail/php80-composer:latest \
-    composer install --ignore-platform-reqs
 
