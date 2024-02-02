@@ -7,3 +7,14 @@ docker-compose exec app bash to access to shell (for example, to run composer in
 -- Assets
 Install npm: docker-compose run npm --rm install
 Compile assets: docker-compose run npm --rm  prod
+
+
+NOTE: if php is not present you can still install sail with:
+
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/opt \
+    -w /opt \
+    laravelsail/php80-composer:latest \
+    composer install --ignore-platform-reqs
+
