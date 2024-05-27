@@ -7,7 +7,6 @@ services:
         uid: 1000
       context: ./
       dockerfile: Dockerfile
-    image: laravel-image
     container_name: carta-app
     restart: unless-stopped
     working_dir: /var/www/
@@ -19,6 +18,7 @@ services:
 
   db:
     image: mysql:5.7
+    platform: linux/x86_64
     container_name: carta-db
     restart: unless-stopped
     ports:
@@ -38,6 +38,7 @@ services:
 
   nginx:
     image: nginx:alpine
+    platform: linux/x86_64
     container_name: carta-nginx
     restart: unless-stopped
     ports:
@@ -49,6 +50,7 @@ services:
       - app-network
   npm:
     image: node:12
+    platform: linux/x86_64
     container_name: carta-npm
     volumes:
       - ./:/var/www
