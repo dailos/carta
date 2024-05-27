@@ -73,11 +73,11 @@
 		</div>
 		<div class="custom-control custom-checkbox">
 			<input type="checkbox" class="custom-control-input" id="otras" name="otras" @if(form_value(isset($ficha) ? $ficha->otras : null, 'otras', $errors)) checked="checked" @endif>
-			<label class="custom-control-label" for="otras">Otras</label>  
+			<label class="custom-control-label" for="otras">Otras</label>
 		</div>
 		<div class="custom-control custom-checkbox">
 			<input type="checkbox" class="custom-control-input" id="alte_naturales" name="alte_naturales" @if(form_value(isset($ficha) ? $ficha->alte_naturales : null, 'alte_naturales', $errors)) checked="checked" @endif>
-			<label class="custom-control-label" for="alte_naturales">Alteraciones Naturales</label>  
+			<label class="custom-control-label" for="alte_naturales">Alteraciones Naturales</label>
 		</div>
 	</div>
 </div>
@@ -141,7 +141,7 @@
 	<div class="form-group col-lg-4">
 		<div class="custom-control custom-checkbox">
 			<input type="checkbox" class="custom-control-input" id="declaracion_BIC" name="declaracion_BIC" @if(form_value(isset($ficha) ? $ficha->declaracion_BIC : null, 'declaracion_BIC', $errors)) checked="checked" @endif><br>
-			<label class="custom-control-label" for="declaracion_BIC">Declaración B I C</label>  
+			<label class="custom-control-label" for="declaracion_BIC">Declaración B I C</label>
 		</div>
 	</div>
 </div>
@@ -150,7 +150,7 @@
 	<div class="form-group col-lg-4">
 		<label for="fecha_incoacion">Fecha incoación</label>
 		<div class='input-group date datetimepicker'>
-	        <input v-validate="'date_format:DD/MM/YYYY'" data-vv-as="@lang('validation.attributes.fecha_incoacion')" type='text' class="form-control{{ $errors->has('fecha_incoacion') ? ' is-invalid' : '' }}" name="fecha_incoacion" value="{{ form_value(isset($ficha) ? (isset($ficha->fecha_incoacion) ? $ficha->fecha_incoacion_formated : null) : null, 'fecha_incoacion', $errors) }}" autofocus/>
+	        <input v-validate="'date_format:dd/MM/yyyy'" data-vv-as="@lang('validation.attributes.fecha_incoacion')" type='text' class="form-control{{ $errors->has('fecha_incoacion') ? ' is-invalid' : '' }}" name="fecha_incoacion" value="{{ form_value(isset($ficha) ? (isset($ficha->fecha_incoacion) ? $ficha->fecha_incoacion_formated : null) : null, 'fecha_incoacion', $errors) }}" autofocus/>
 	        <div class="input-group-append input-group-addon">
 	            <span class="input-group-text">
 	            	<i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
@@ -165,7 +165,7 @@
 	<div class="form-group col-lg-4">
 		<label for="fecha_declaracion">Fecha declaración</label>
 		<div class='input-group date datetimepicker'>
-	        <input v-validate="'date_format:DD/MM/YYYY'" data-vv-as="@lang('validation.attributes.fecha_declaracion')" type='text' class="form-control{{ $errors->has('fecha_declaracion') ? ' is-invalid' : '' }}" name="fecha_declaracion" value="{{ form_value(isset($ficha) ? (isset($ficha->fecha_declaracion) ? $ficha->fecha_declaracion_formated : null) : null, 'fecha_declaracion', $errors) }}" autofocus/>
+	        <input v-validate="'date_format:dd/MM/yyyy'" data-vv-as="@lang('validation.attributes.fecha_declaracion')" type='text' class="form-control{{ $errors->has('fecha_declaracion') ? ' is-invalid' : '' }}" name="fecha_declaracion" value="{{ form_value(isset($ficha) ? (isset($ficha->fecha_declaracion) ? $ficha->fecha_declaracion_formated : null) : null, 'fecha_declaracion', $errors) }}" autofocus/>
 	        <div class="input-group-append input-group-addon">
 	            <span class="input-group-text">
 	            	<i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
@@ -190,7 +190,7 @@
 	<div class="form-group col-lg-4">
 		<label for="calificacion_suelo_id">Calificación Suelo</label>
 		<select2 :options="calificaciones_suelo" :placeholder="placeholder_generico" :allowclear="allow" class="form-control" @if($errors->has('calificacion_suelo_id')) class=" is-invalid" @endif name="calificacion_suelo_id" v-model="calificacion_suelo"></select2>
-		
+
 		@errorvee(['field' => 'calificacion_suelo_id'])@enderrorvee
 		@errorlaravel(['field' => 'calificacion_suelo_id'])@enderrorlaravel
 	</div>
@@ -219,7 +219,7 @@
 	<div class="form-group col-lg-4">
 		<label for="grado_proteccion_id">Grado Protección</label>
 		<select2 :options="grados_proteccion" :placeholder="placeholder_generico" :allowclear="allow" class="form-control" @if($errors->has('grado_proteccion_id')) class=" is-invalid" @endif name="grado_proteccion_id" v-model="grado_proteccion"></select2>
-		
+
 		@errorvee(['field' => 'grado_proteccion_id'])@enderrorvee
 		@errorlaravel(['field' => 'grado_proteccion_id'])@enderrorlaravel
 	</div>
