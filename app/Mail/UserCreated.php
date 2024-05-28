@@ -34,7 +34,9 @@ class UserCreated extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.users.created')->with([
+        return $this->markdown('emails.users.created')->
+            subject('Tu nueva cuenta de la Carta Etnogográfica de Canarias está lista')->
+            with([
             'user' => $this->user,
             'password' => $this->password
         ]);
